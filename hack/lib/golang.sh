@@ -90,6 +90,20 @@ fi
 # The set of client targets that we are building for all platforms
 readonly KUBE_CLIENT_TARGETS=(
   cmd/kubectl
+# >>> HACK to get test binaries built on darwin systems
+  cmd/integration
+  cmd/gendocs
+  cmd/genkubedocs
+  cmd/genman
+  cmd/mungedocs
+  cmd/genbashcomp
+  cmd/genconversion
+  cmd/gendeepcopy
+  cmd/genswaggertypedocs
+  examples/k8petstore/web-server/src
+  github.com/onsi/ginkgo/ginkgo
+  test/e2e/e2e.test
+  test/e2e_node/e2e_node.test
 )
 readonly KUBE_CLIENT_BINARIES=("${KUBE_CLIENT_TARGETS[@]##*/}")
 readonly KUBE_CLIENT_BINARIES_WIN=("${KUBE_CLIENT_BINARIES[@]/%/.exe}")
